@@ -159,5 +159,13 @@ The PID controller is flight tested and running well with the default PID settin
 
 Yaw authority is also quite good.
 
+###RC rates, RC Expo, and P/R/Yaw rates
 
+RC rate controls overall stick sensitivity as a multiplier applied before any PID processing is done by the PID Controller for pitch, roll, and yaw stick inputs.
+
+RX Expo controls the shape of the stick input versus output to the PID controllers. A value of zero is no shaping, ie straight curve. Higher values will increasingly flatten the curve around stick center.
+
+On PID Controllers 0,3,4,and 5 the P/R rate gradually reduces the PID Controller's P and D terms past mid-stick on the pitch and roll axis by the value, ie 0.3 is a 30% decrease in those gains at full stick. Allowing for faster rotation rates at full stick, while allowing sensitivity around mid stick to be changed with the RC rate. There is obviously interaction since inceasing RC rate not only affects neutral sensitivity, but also full stick. YAW Rate acts similarly in PID Controller 0. 
+
+On PID Controllers 1 and 2, the P/R rate (separated in releases later than 1.8) acts as a direct,independent multiplier to the pitch and roll stick sensitivity set by RC rate. YAW Rate in PID Controllers 1,2,3,4, and 5, acts similarly.
 
